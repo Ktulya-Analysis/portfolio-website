@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-family: 'Inter', sans-serif;
+  background-color: #081229;
+  color: #f5f7fb;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, rgba(122, 31, 70, 0.16), transparent 30%),
+    linear-gradient(120deg, #081229 0%, #102B5C 40%, #2D3A8C 100%);
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: rgba(122, 31, 70, 0.35);
+  color: #fff;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+@keyframes auroraFloat {
+  0%, 100% { transform: translate3d(0,0,0) scale(1); }
+  50% { transform: translate3d(20px,-18px,0) scale(1.04); }
+}
+
+@keyframes blobDrift {
+  0%, 100% { transform: translate3d(0,0,0); }
+  50% { transform: translate3d(24px, -20px, 0); }
+}
+
+@keyframes driftSlow {
+  0%, 100% { transform: translate3d(0,0,0); }
+  50% { transform: translate3d(-18px, 16px, 0); }
+}
+
+@keyframes particleDrift {
+  0%, 100% { transform: translate3d(0,0,0); opacity: 0.25; }
+  50% { transform: translate3d(10px,-8px,0); opacity: 0.45; }
+}
+
+@keyframes floatDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
