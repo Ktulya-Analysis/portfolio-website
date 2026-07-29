@@ -12,25 +12,80 @@ export function HeroSection() {
         <div className="blob-c absolute bottom-[10%] right-[12%] h-[17rem] w-[17rem] rounded-full bg-[radial-gradient(circle,_rgba(92,31,42,0.14),_rgba(67,23,32,0.08)_55%,_transparent_74%)] blur-[140px]" />
         <div className="blob-d absolute left-[24%] top-[38%] h-[13rem] w-[13rem] rounded-full bg-[radial-gradient(circle,_rgba(107,125,223,0.12),_transparent_80%)] blur-[120px]" />
 
-        {Array.from({ length: 35 }).map((_, index) => {
-          const duration = 12 + (index % 7) * 2 + 4;
-          const delay = (index % 9) * 0.35;
-          const offsetX = (index % 5) * 8;
-          const offsetY = (index % 4) * 6;
+        {Array.from({ length: 46 }).map((_, index) => {
+          // Improved size distribution: Large 15%, Medium 45%, Small 35%, Tiny 5%
+          let sizeTier;
+          const distribution = index % 20;
+          if (distribution < 3) {
+            // Large: 15% (4–6px)
+            sizeTier = 5.2 + (index % 3) * 0.4;
+          } else if (distribution < 12) {
+            // Medium: 45% (3–4px)
+            sizeTier = 3.6 + (index % 4) * 0.24;
+          } else if (distribution < 19) {
+            // Small: 35% (2–3px)
+            sizeTier = 2.4 + (index % 3) * 0.3;
+          } else {
+            // Very tiny: 5% (2–2.4px, no less)
+            sizeTier = 2.0 + (index % 2) * 0.2;
+          }
+          const size = sizeTier;
+          const duration = 8 + (index % 4) * 2 + (index % 3 === 0 ? 1 : 0);
+          const delay = (index % 7) * 0.35;
+          const travelX = (index % 2 === 0 ? 1 : -1) * (18 + (index % 6) * 8);
+          const travelY = -(16 + (index % 4) * 8);
+          const brightnessGroup = index % 10 === 0 ? 0.95 : index % 7 === 0 ? 0.8 : index % 4 === 0 ? 0.68 : index % 2 === 0 ? 0.58 : 0.5;
+          const opacity = index % 10 === 0 ? 0.95 : index % 7 === 0 ? 0.82 : index % 4 === 0 ? 0.72 : index % 2 === 0 ? 0.6 : 0.48;
+          const glowRadius = size * 1.8 + (index % 4 === 0 ? 1.4 : 0.8);
+          const glowOpacity = index % 10 === 0 ? 0.3 : index % 7 === 0 ? 0.22 : index % 4 === 0 ? 0.16 : 0.12;
+          const highlight = 0.96 + (index % 3) * 0.02;
+          const tint = 0.76 + (index % 4) * 0.04;
+
+          // Shape variation: circles 70%, diamonds 20%, sparkles 10%
+          let shapeClass = 'rounded-full';
+          let shapeStyle = {};
+          const shapeType = index % 10;
+          if (shapeType >= 7 && shapeType <= 8) {
+            // Diamond: 20% (2 out of 10)
+            shapeClass = '';
+            shapeStyle = { borderRadius: '0%', transform: 'rotate(45deg)' };
+          } else if (shapeType === 9) {
+            // Sparkle: 10% (1 out of 10)
+            shapeClass = 'particle-sparkle';
+          }
+
+          // Incandescent blink for ~11% of particles (5 out of 46)
+          const shouldBlink = index % 9 === 0;
+          const blinkDuration = shouldBlink ? 8 + (index % 5) * 1 : undefined;
+          const blinkDelay = shouldBlink ? (index % 13) * 0.5 : undefined;
+          const animationNames = shouldBlink ? 'particleDrift, particleIncandescent' : 'particleDrift';
+          const animationDurations = shouldBlink ? `${duration}s, ${blinkDuration}s` : `${duration}s`;
+          const animationDelays = shouldBlink ? `${delay}s, ${blinkDelay}s` : `${delay}s`;
 
           return (
             <span
               key={index}
-              className="particle absolute h-1.5 w-1.5 rounded-full bg-white/70"
+              className={`particle absolute ${shapeClass}`}
               style={{
                 left: `${(index * 17) % 100}%`,
                 top: `${(index * 13) % 100}%`,
-                animationName: 'particleDrift',
-                animationDuration: `${duration}s`,
-                animationDelay: `${delay}s`,
+                width: `${size}px`,
+                height: `${size}px`,
+                opacity,
+                background: `radial-gradient(circle, rgba(255,255,255,${highlight}) 0%, rgba(219,228,255,${tint}) 58%, rgba(255,255,255,0.12) 100%)`,
+                boxShadow: `0 0 ${glowRadius}px rgba(217, 229, 255, ${glowOpacity})`,
+                animationName: animationNames,
+                animationDuration: animationDurations,
+                animationDelay: animationDelays,
                 animationTimingFunction: 'ease-in-out',
                 animationIterationCount: 'infinite',
-                transform: `translate3d(${offsetX}px, ${offsetY}px, 0)`,
+                ['--travel-x' as string]: `${travelX}px`,
+                ['--travel-y' as string]: `${travelY}px`,
+                ['--opacity-low' as string]: `${Math.max(0.3, opacity - 0.16)}`,
+                ['--opacity-mid' as string]: `${Math.min(0.88, opacity + 0.1)}`,
+                ['--opacity-high' as string]: `${Math.min(0.96, opacity + 0.18)}`,
+                filter: `brightness(${brightnessGroup})`,
+                ...shapeStyle,
               }}
             />
           );
