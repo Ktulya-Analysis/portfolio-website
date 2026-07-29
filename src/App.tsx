@@ -8,6 +8,7 @@ import { ExperienceSection } from './components/sections/ExperienceSection';
 import { Footer } from './components/sections/Footer';
 import { ProjectsSection } from './components/sections/ProjectsSection';
 import { SkillsSection } from './components/sections/SkillsSection';
+import { FadeInSection } from './components/shared/FadeInSection';
 
 function App() {
   return (
@@ -15,15 +16,31 @@ function App() {
       <Navbar />
       <main>
         <HeroSection />
-        <AboutSection />
-        <ExperienceSection />
-        <ProjectsSection />
-        <SkillsSection />
-        <CertificationsSection />
-        <ArticlesSection />
-        <ContactSection />
+        <FadeInSection label="About">
+          <AboutSection />
+        </FadeInSection>
+        <FadeInSection label="Experience">
+          <ExperienceSection />
+        </FadeInSection>
+        <FadeInSection label="Projects">
+          <ProjectsSection />
+        </FadeInSection>
+        <FadeInSection label="Skills">
+          <SkillsSection />
+        </FadeInSection>
+        <FadeInSection label="Certifications">
+          <CertificationsSection />
+        </FadeInSection>
+        <FadeInSection label="Articles">
+          <ArticlesSection />
+        </FadeInSection>
+        <FadeInSection label="Contact">
+          <ContactSection />
+        </FadeInSection>
       </main>
-      <Footer />
+      <FadeInSection label="Footer">
+        <Footer />
+      </FadeInSection>
     </div>
   );
 }
