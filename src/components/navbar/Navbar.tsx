@@ -18,9 +18,10 @@ export function Navbar() {
             <a
               key={item.href}
               href={item.href}
-              className="text-sm text-slate-300 transition-colors duration-300 hover:text-white"
+              className="group relative text-sm text-slate-300 transition-colors duration-250 ease-out hover:text-white"
             >
-              {item.label}
+              <span>{item.label}</span>
+              <span className="absolute bottom-[-4px] left-0 h-px w-0 bg-white transition-all duration-250 ease-out group-hover:w-full" />
             </a>
           ))}
           <Button href="#contact" variant="primary" className="px-4 py-2">

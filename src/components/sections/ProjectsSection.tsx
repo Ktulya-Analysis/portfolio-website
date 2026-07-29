@@ -7,9 +7,9 @@ export function ProjectsSection() {
     <SectionContainer id="projects" title="Projects">
       <div className="space-y-6">
         {projects.map((project) => (
-          <article key={project.name} className="group overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/20 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-soft lg:grid lg:grid-cols-[0.9fr_1.1fr]">
+          <article key={project.name} className="group overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/20 backdrop-blur-xl transition-all duration-250 ease-out hover:-translate-y-2 hover:border-white/20 hover:bg-slate-950/25 hover:shadow-[0_18px_48px_rgba(7,15,34,0.24)] lg:grid lg:grid-cols-[0.9fr_1.1fr]">
             <div className="h-56 overflow-hidden lg:h-full">
-              <img src={project.image} alt={project.name} className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" />
+              <img src={project.image} alt={project.name} className="h-full w-full object-cover transition-transform duration-250 ease-out group-hover:scale-[1.03]" />
             </div>
 
             <div className="flex flex-col justify-between p-6 sm:p-8">
@@ -35,17 +35,17 @@ export function ProjectsSection() {
 
               <div className="mt-6 flex flex-wrap gap-3">
                 {project.github ? (
-                  <a href={project.github} className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-medium text-slate-100 transition-colors duration-300 hover:bg-white/20">
+                  <a href={project.github} className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-medium text-slate-100 transition-all duration-250 ease-out hover:border-white/20 hover:bg-white/20 hover:-translate-y-0.5">
                     GitHub
                   </a>
                 ) : null}
                 {project.demo ? (
-                  <a href={project.demo} className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-medium text-slate-100 transition-colors duration-300 hover:bg-white/20">
+                  <a href={project.demo} className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-medium text-slate-100 transition-all duration-250 ease-out hover:border-white/20 hover:bg-white/20 hover:-translate-y-0.5">
                     Live Demo
                   </a>
                 ) : null}
                 {project.caseStudy ? (
-                  <a href={project.caseStudy} className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-medium text-slate-100 transition-colors duration-300 hover:bg-white/20">
+                  <a href={project.caseStudy} className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-medium text-slate-100 transition-all duration-250 ease-out hover:border-white/20 hover:bg-white/20 hover:-translate-y-0.5">
                     Case Study
                   </a>
                 ) : null}

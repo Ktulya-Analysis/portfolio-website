@@ -7,7 +7,7 @@ export function ExperienceSection() {
     <SectionContainer id="experience" title="Experience">
       <div className="space-y-5">
         {experienceItems.map((item) => (
-          <article key={item.company} className="group rounded-[1.75rem] border border-white/10 bg-slate-950/20 p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-soft">
+          <article key={item.company} className="group rounded-[1.75rem] border border-white/10 bg-slate-950/20 p-6 backdrop-blur-xl transition-all duration-250 ease-out hover:-translate-y-1.5 hover:border-white/20 hover:shadow-[0_16px_48px_rgba(7,15,34,0.22)]">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/10 text-sm font-semibold uppercase text-slate-200">

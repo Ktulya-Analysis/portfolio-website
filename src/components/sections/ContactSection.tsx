@@ -15,7 +15,7 @@ export function ContactSection() {
 
           <div className="flex flex-wrap gap-3">
             {socials.map((item) => (
-              <a key={item.label} href={item.href} className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-medium text-slate-100 transition-colors duration-300 hover:bg-white/20">
+              <a key={item.label} href={item.href} className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-medium text-slate-100 transition-all duration-250 ease-out hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/20">
                 {item.label}
               </a>
             ))}
@@ -31,7 +31,7 @@ export function ContactSection() {
             <MapPin size={16} className="text-[#f0b2c8]" />
             <span>{contactDetails.location}</span>
           </div>
-          <a href={contactDetails.resumeHref} className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-slate-100 transition-colors duration-300 hover:bg-white/20">
+          <a href={contactDetails.resumeHref} className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-slate-100 transition-all duration-250 ease-out hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/20">
             <FileText size={16} />
             Download Resume
           </a>

@@ -5,7 +5,7 @@ type BadgeProps = {
 
 export function Badge({ children, className }: BadgeProps) {
   return (
-    <span className={`inline-flex items-center rounded-full border border-white/10 bg-white/10 px-3 py-1.5 text-sm font-medium text-slate-200 backdrop-blur-md ${className ?? ''}`}>
+    <span className={`inline-flex items-center rounded-full border border-white/10 bg-white/10 px-3 py-1.5 text-sm font-medium text-slate-200 backdrop-blur-md transition-all duration-250 ease-out hover:border-white/20 hover:bg-white/15 ${className ?? ''}`}>
       {children}
     </span>
   );

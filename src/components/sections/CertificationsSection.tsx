@@ -6,7 +6,7 @@ export function CertificationsSection() {
     <SectionContainer id="certifications" title="Certifications">
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {certifications.map((item) => (
-          <article key={item.name} className="rounded-[1.5rem] border border-white/10 bg-slate-950/20 p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-soft">
+          <article key={item.name} className="rounded-[1.5rem] border border-white/10 bg-slate-950/20 p-6 backdrop-blur-xl transition-all duration-250 ease-out hover:-translate-y-1.5 hover:border-white/20 hover:shadow-[0_14px_40px_rgba(7,15,34,0.2)]">
             <div className="flex items-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/10 text-sm font-semibold uppercase text-slate-200">
                 {item.provider.slice(0, 2)}
@@ -18,7 +18,7 @@ export function CertificationsSection() {
             </div>
             <div className="mt-5 flex items-center justify-between text-sm text-slate-400">
               <span>Issued {item.issued}</span>
-              <a href={item.link} className="font-medium text-slate-200 transition-colors duration-300 hover:text-white">
+              <a href={item.link} className="font-medium text-slate-200 transition-all duration-250 ease-out hover:text-white hover:-translate-y-0.5">
                 {item.credential}
               </a>
             </div>
