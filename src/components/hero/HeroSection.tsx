@@ -6,23 +6,35 @@ export function HeroSection() {
   return (
     <section id="home" className="relative isolate overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="aurora absolute left-[-10%] top-[-10%] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,_rgba(122,31,70,0.28),_rgba(122,31,70,0.06)_45%,_transparent_70%)] blur-3xl" />
-        <div className="blob-a absolute right-[8%] top-[12%] h-[24rem] w-[24rem] rounded-full bg-[radial-gradient(circle,_rgba(16,43,92,0.26),_transparent_70%)] blur-[140px]" />
-        <div className="blob-b absolute bottom-[-8%] left-[10%] h-[20rem] w-[20rem] rounded-full bg-[radial-gradient(circle,_rgba(75,46,131,0.18),_transparent_70%)] blur-[150px]" />
-        <div className="blob-c absolute bottom-[12%] right-[15%] h-[16rem] w-[16rem] rounded-full bg-[radial-gradient(circle,_rgba(107,24,57,0.18),_transparent_70%)] blur-[130px]" />
+        <div className="aurora absolute left-[-14%] top-[-12%] h-[36rem] w-[36rem] rounded-full bg-[radial-gradient(circle,_rgba(70,103,199,0.22),_rgba(28,48,122,0.12)_38%,_rgba(92,31,42,0.08)_55%,_transparent_72%)] blur-[140px]" />
+        <div className="blob-a absolute right-[6%] top-[8%] h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,_rgba(65,100,210,0.16),_rgba(31,57,140,0.08)_48%,_transparent_70%)] blur-[180px]" />
+        <div className="blob-b absolute bottom-[-10%] left-[8%] h-[24rem] w-[24rem] rounded-full bg-[radial-gradient(circle,_rgba(31,57,140,0.16),_rgba(92,31,42,0.1)_53%,_transparent_72%)] blur-[170px]" />
+        <div className="blob-c absolute bottom-[10%] right-[12%] h-[17rem] w-[17rem] rounded-full bg-[radial-gradient(circle,_rgba(92,31,42,0.14),_rgba(67,23,32,0.08)_55%,_transparent_74%)] blur-[140px]" />
+        <div className="blob-d absolute left-[24%] top-[38%] h-[13rem] w-[13rem] rounded-full bg-[radial-gradient(circle,_rgba(107,125,223,0.12),_transparent_80%)] blur-[120px]" />
 
-        {Array.from({ length: 35 }).map((_, index) => (
-          <span
-            key={index}
-            className="particle absolute h-1.5 w-1.5 rounded-full bg-white/70"
-            style={{
-              left: `${(index * 17) % 100}%`,
-              top: `${(index * 13) % 100}%`,
-              animationDelay: `${index * 0.2}s`,
-              animationDuration: `${18 + (index % 8) * 2}s`,
-            }}
-          />
-        ))}
+        {Array.from({ length: 35 }).map((_, index) => {
+          const duration = 12 + (index % 7) * 2 + 4;
+          const delay = (index % 9) * 0.35;
+          const offsetX = (index % 5) * 8;
+          const offsetY = (index % 4) * 6;
+
+          return (
+            <span
+              key={index}
+              className="particle absolute h-1.5 w-1.5 rounded-full bg-white/70"
+              style={{
+                left: `${(index * 17) % 100}%`,
+                top: `${(index * 13) % 100}%`,
+                animationName: 'particleDrift',
+                animationDuration: `${duration}s`,
+                animationDelay: `${delay}s`,
+                animationTimingFunction: 'ease-in-out',
+                animationIterationCount: 'infinite',
+                transform: `translate3d(${offsetX}px, ${offsetY}px, 0)`,
+              }}
+            />
+          );
+        })}
       </div>
 
       <div className="mx-auto grid min-h-[calc(100vh-5rem)] max-w-7xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">

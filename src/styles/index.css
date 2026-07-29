@@ -25,8 +25,11 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background: radial-gradient(circle at top left, rgba(122, 31, 70, 0.16), transparent 30%),
-    linear-gradient(120deg, #081229 0%, #102B5C 40%, #2D3A8C 100%);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(90, 120, 220, 0.16), transparent 28%),
+    radial-gradient(circle at 80% 10%, rgba(62, 85, 180, 0.14), transparent 34%),
+    radial-gradient(circle at 50% 100%, rgba(92, 31, 42, 0.16), transparent 30%),
+    linear-gradient(120deg, #081428 0%, #102B5C 38%, #243B88 62%, #081229 100%);
   overflow-x: hidden;
 }
 
@@ -43,24 +46,101 @@ body {
   min-height: 100vh;
 }
 
+@keyframes testMove {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-100px); }
+}
+
+.test-motion-marker {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background: #ff3b30;
+  z-index: 9999;
+  animation: testMove 2s ease-in-out infinite;
+}
+
 @keyframes auroraFloat {
-  0%, 100% { transform: translate3d(0,0,0) scale(1); }
-  50% { transform: translate3d(20px,-18px,0) scale(1.04); }
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.86; }
+  25% { transform: translate3d(18px, -12px, 0) scale(1.02); opacity: 0.94; }
+  50% { transform: translate3d(6px, -24px, 0) scale(1.04); opacity: 1; }
+  75% { transform: translate3d(-10px, -8px, 0) scale(1.01); opacity: 0.9; }
 }
 
 @keyframes blobDrift {
-  0%, 100% { transform: translate3d(0,0,0); }
-  50% { transform: translate3d(24px, -20px, 0); }
+  0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.84; }
+  33% { transform: translate3d(26px, -18px, 0); opacity: 0.94; }
+  66% { transform: translate3d(-18px, 16px, 0); opacity: 0.9; }
 }
 
 @keyframes driftSlow {
-  0%, 100% { transform: translate3d(0,0,0); }
-  50% { transform: translate3d(-18px, 16px, 0); }
+  0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.82; }
+  50% { transform: translate3d(-22px, 14px, 0); opacity: 0.95; }
+}
+
+@keyframes driftGentle {
+  0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.84; }
+  50% { transform: translate3d(16px, -10px, 0); opacity: 0.92; }
+}
+
+.aurora,
+.blob-a,
+.blob-b,
+.blob-c,
+.blob-d {
+  will-change: transform, opacity;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+.aurora {
+  animation-name: auroraFloat;
+  animation-duration: 36s;
+  animation-delay: -2s;
+}
+
+.blob-a {
+  animation-name: blobDrift;
+  animation-duration: 28s;
+  animation-delay: -6s;
+}
+
+.blob-b {
+  animation-name: driftSlow;
+  animation-duration: 34s;
+  animation-delay: -12s;
+}
+
+.blob-c {
+  animation-name: driftGentle;
+  animation-duration: 41s;
+  animation-delay: -18s;
+}
+
+.blob-d {
+  animation-name: auroraFloat;
+  animation-duration: 48s;
+  animation-delay: -24s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora,
+  .blob-a,
+  .blob-b,
+  .blob-c,
+  .blob-d {
+    animation: none !important;
+    transform: none !important;
+  }
 }
 
 @keyframes particleDrift {
-  0%, 100% { transform: translate3d(0,0,0); opacity: 0.25; }
-  50% { transform: translate3d(10px,-8px,0); opacity: 0.45; }
+  0%, 100% { transform: translate3d(0, 0, 0); opacity: 0.25; }
+  50% { transform: translate3d(10px, -8px, 0); opacity: 0.45; }
 }
 
 @keyframes floatDown {
