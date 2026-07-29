@@ -135,7 +135,7 @@ export function HeroSection() {
 
         <div className="flex justify-center lg:justify-end">
           <div className="relative">
-            <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle,_rgba(255,255,255,0.35),_transparent_70%)] blur-3xl" />
+            <div className="hero-photo-ambient absolute inset-0 rounded-full" />
             <div className="relative h-[280px] w-[280px] overflow-hidden rounded-full border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-2 shadow-soft sm:h-[320px] sm:w-[320px]">
               <div className="flex h-full w-full items-center justify-center rounded-full border border-white/10 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.1),_rgba(255,255,255,0.02)_60%,_transparent_100%)] text-center text-sm font-medium text-slate-300">
                 Professional photo placeholder
