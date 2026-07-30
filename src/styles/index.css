@@ -46,6 +46,110 @@ body {
   min-height: 100vh;
 }
 
+.skills-panel {
+  box-shadow:
+    0 24px 70px rgba(7, 15, 34, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.skills-divider {
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    rgba(157, 185, 255, 0),
+    rgba(157, 185, 255, 0.3),
+    rgba(122, 31, 70, 0.18),
+    rgba(157, 185, 255, 0)
+  );
+  box-shadow: 0 0 22px rgba(122, 31, 70, 0.12);
+}
+
+.skills-divider::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 6px;
+  width: 6px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow:
+    0 0 16px rgba(79, 139, 255, 0.55),
+    0 0 22px rgba(255, 77, 109, 0.35);
+  transform: translate(-50%, -50%);
+}
+
+.skill-card {
+  box-shadow:
+    0 14px 38px rgba(7, 15, 34, 0.18),
+    0 0 0 rgba(255, 255, 255, 0);
+}
+
+.skill-card:hover,
+.skill-card:focus-visible {
+  box-shadow:
+    0 20px 48px rgba(7, 15, 34, 0.25),
+    0 0 30px var(--skill-glow);
+}
+
+.skill-logo-shell {
+  position: relative;
+}
+
+.skill-logo-shell::before {
+  content: '';
+  position: absolute;
+  inset: 9px;
+  border-radius: 9999px;
+  background: var(--skill-glow);
+  filter: blur(14px);
+  opacity: 0.5;
+  transform: translateZ(0);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.skill-card:hover .skill-logo-shell::before,
+.skill-card:focus-visible .skill-logo-shell::before {
+  opacity: 0.78;
+  transform: scale(1.08);
+}
+
+.skill-logo {
+  position: relative;
+  z-index: 1;
+}
+
+.expertise-card:focus-visible {
+  outline: 2px solid #f0b2c8;
+  outline-offset: 3px;
+}
+
+@media (min-width: 1024px) {
+  .skills-divider {
+    background: linear-gradient(
+      180deg,
+      rgba(157, 185, 255, 0),
+      rgba(157, 185, 255, 0.3),
+      rgba(122, 31, 70, 0.18),
+      rgba(157, 185, 255, 0)
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-card,
+  .skill-logo,
+  .skill-logo-shell::before,
+  .expertise-card {
+    transition: none !important;
+  }
+
+  .skill-card:hover,
+  .expertise-card:hover {
+    transform: none !important;
+  }
+}
+
 @keyframes testMove {
   0%, 100% { transform: translateX(0); }
   50% { transform: translateX(-100px); }
