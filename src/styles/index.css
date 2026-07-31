@@ -57,11 +57,11 @@ body {
   background: linear-gradient(
     90deg,
     rgba(157, 185, 255, 0),
-    rgba(157, 185, 255, 0.3),
-    rgba(122, 31, 70, 0.18),
+    rgba(79, 139, 255, 0.35),
+    rgba(158, 43, 71, 0.45),
     rgba(157, 185, 255, 0)
   );
-  box-shadow: 0 0 22px rgba(122, 31, 70, 0.12);
+  box-shadow: 0 0 22px rgba(158, 43, 71, 0.2);
 }
 
 .skills-divider::after {
@@ -72,24 +72,24 @@ body {
   height: 6px;
   width: 6px;
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   box-shadow:
-    0 0 16px rgba(79, 139, 255, 0.55),
-    0 0 22px rgba(255, 77, 109, 0.35);
+    0 0 16px rgba(79, 139, 255, 0.6),
+    0 0 22px rgba(201, 88, 116, 0.6);
   transform: translate(-50%, -50%);
 }
 
 .skill-card {
   box-shadow:
-    0 14px 38px rgba(7, 15, 34, 0.18),
-    0 0 0 rgba(255, 255, 255, 0);
+    0 10px 30px rgba(7, 15, 34, 0.2),
+    0 0 18px var(--skill-glow);
 }
 
 .skill-card:hover,
 .skill-card:focus-visible {
   box-shadow:
-    0 20px 48px rgba(7, 15, 34, 0.25),
-    0 0 30px var(--skill-glow);
+    0 16px 40px rgba(7, 15, 34, 0.28),
+    0 0 32px var(--skill-glow);
 }
 
 .skill-logo-shell {
@@ -99,19 +99,19 @@ body {
 .skill-logo-shell::before {
   content: '';
   position: absolute;
-  inset: 9px;
+  inset: 2px;
   border-radius: 9999px;
   background: var(--skill-glow);
-  filter: blur(14px);
-  opacity: 0.5;
+  filter: blur(12px);
+  opacity: 0.65;
   transform: translateZ(0);
   transition: opacity 300ms ease, transform 300ms ease;
 }
 
 .skill-card:hover .skill-logo-shell::before,
 .skill-card:focus-visible .skill-logo-shell::before {
-  opacity: 0.78;
-  transform: scale(1.08);
+  opacity: 0.92;
+  transform: scale(1.15);
 }
 
 .skill-logo {
@@ -120,7 +120,7 @@ body {
 }
 
 .expertise-card:focus-visible {
-  outline: 2px solid #f0b2c8;
+  outline: 2px solid #C95874;
   outline-offset: 3px;
 }
 
@@ -129,8 +129,8 @@ body {
     background: linear-gradient(
       180deg,
       rgba(157, 185, 255, 0),
-      rgba(157, 185, 255, 0.3),
-      rgba(122, 31, 70, 0.18),
+      rgba(79, 139, 255, 0.35),
+      rgba(158, 43, 71, 0.45),
       rgba(157, 185, 255, 0)
     );
   }

@@ -1,50 +1,57 @@
-export const technologies = [
+export interface Technology {
+  name: string;
+  iconKey: 'sql' | 'python' | 'postgresql' | 'powerbi' | 'tableau' | 'excel' | 'dbt' | 'git' | 'github';
+  detail?: string;
+  glow: string;
+}
+
+export const technologies: Technology[] = [
   {
     name: 'SQL',
-    logo: 'https://cdn.simpleicons.org/microsoftsqlserver',
-    glow: 'rgba(58, 138, 255, 0.34)',
+    iconKey: 'sql',
+    glow: 'rgba(58, 138, 255, 0.45)',
   },
   {
     name: 'Python',
-    logo: 'https://cdn.simpleicons.org/python',
+    iconKey: 'python',
     detail: '(Pandas, NumPy)',
-    glow: 'rgba(255, 210, 75, 0.34)',
+    glow: 'rgba(255, 212, 59, 0.45)',
   },
   {
     name: 'PostgreSQL',
-    logo: 'https://cdn.simpleicons.org/postgresql',
-    glow: 'rgba(51, 103, 145, 0.38)',
+    iconKey: 'postgresql',
+    glow: 'rgba(51, 103, 145, 0.48)',
   },
   {
     name: 'Power BI',
-    logo: 'https://cdn.simpleicons.org/powerbi',
+    iconKey: 'powerbi',
     detail: '(DAX)',
-    glow: 'rgba(242, 200, 17, 0.36)',
+    glow: 'rgba(242, 200, 17, 0.45)',
   },
   {
     name: 'Tableau',
-    logo: 'https://cdn.simpleicons.org/tableau',
-    glow: 'rgba(49, 135, 201, 0.34)',
+    iconKey: 'tableau',
+    glow: 'rgba(78, 121, 167, 0.45)',
   },
   {
     name: 'Microsoft Excel',
-    logo: 'https://cdn.simpleicons.org/microsoftexcel',
-    glow: 'rgba(33, 163, 102, 0.34)',
+    iconKey: 'excel',
+    glow: 'rgba(33, 163, 102, 0.45)',
   },
   {
     name: 'dbt',
-    logo: 'https://cdn.simpleicons.org/dbt',
-    glow: 'rgba(255, 105, 63, 0.34)',
+    iconKey: 'dbt',
+    glow: 'rgba(255, 105, 63, 0.45)',
   },
   {
     name: 'Git',
-    logo: 'https://cdn.simpleicons.org/git',
-    glow: 'rgba(240, 80, 51, 0.34)',
+    iconKey: 'git',
+    glow: 'rgba(240, 80, 51, 0.45)',
   },
   {
     name: 'GitHub',
-    logo: 'https://cdn.simpleicons.org/github/ffffff',
-    glow: 'rgba(255, 255, 255, 0.24)',
+    iconKey: 'github',
+    glow: 'rgba(255, 255, 255, 0.35)',
   },
 ];
 
