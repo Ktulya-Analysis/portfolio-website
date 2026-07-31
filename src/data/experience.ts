@@ -1,26 +1,38 @@
-export const experienceItems = [
+export interface ExperienceItem {
+  role: string;
+  company: string;
+  location: string;
+  duration: string;
+  logo: string;
+  bullets: string[];
+  technologies: Array<'SQL' | 'Python' | 'PostgreSQL' | 'Power BI' | 'Tableau' | 'Microsoft Excel' | 'dbt' | 'Git' | 'GitHub'>;
+}
+
+export const experienceItems: ExperienceItem[] = [
   {
-    role: 'Senior Data Analyst',
-    company: 'Northstar Labs',
-    duration: '2022 — Present',
+    role: 'AI Data Analytics Intern',
+    company: 'InAmigos Foundation',
     location: 'Remote',
+    duration: 'Jul 2026 – Present',
+    logo: '/images/inamigos-logo.jpg',
     bullets: [
-      'Built scalable analytics workflows that improved reporting accuracy across product and customer teams.',
-      'Created executive dashboards and KPI frameworks for cross-functional decision-making.',
-      'Partnered with stakeholders to define reliable metric definitions and reporting standards.',
+      'Built automated ETL pipelines and data workflows to clean, transform, and aggregate raw operational datasets.',
+      'Designed interactive dashboards and executive KPI views to track organizational metrics and drive data-backed strategy.',
+      'Partnered with stakeholders to establish standard data definitions, validation checks, and structured reporting frameworks.',
     ],
-    technologies: ['SQL', 'Python', 'Power BI', 'dbt'],
+    technologies: ['SQL', 'Python', 'Power BI', 'Microsoft Excel'],
   },
   {
-    role: 'Analytics Engineer',
-    company: 'BluePeak Analytics',
-    duration: '2019 — 2022',
-    location: 'Hybrid',
+    role: 'Data Analytics & Visualization Intern',
+    company: 'Design Esthetics',
+    location: 'Remote',
+    duration: 'Jan 2026 – Jun 2026',
+    logo: '/images/design-esthetics-logo.png',
     bullets: [
-      'Modeled customer and product datasets for analytical use cases and self-service reporting.',
-      'Enhanced ETL reliability and documented data transformations for downstream users.',
-      'Supported dashboard delivery and business intelligence adoption across multiple teams.',
+      'Modeled dimensional star-schema data structures enabling self-service reporting and exploratory data analysis.',
+      'Developed interactive Tableau visual dashboards to monitor user engagement metrics, conversion funnels, and retention trends.',
+      'Optimized SQL queries and automated data transformation models using dbt and Git version control workflows.',
     ],
-    technologies: ['PostgreSQL', 'dbt', 'SQL', 'Looker'],
+    technologies: ['PostgreSQL', 'Tableau', 'dbt', 'Git'],
   },
 ];
