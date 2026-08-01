@@ -1,25 +1,30 @@
 import { aboutContent } from '../../data/about';
-import { Badge } from '../shared/Badge';
-import { SectionContainer } from '../shared/SectionContainer';
 
 export function AboutSection() {
   return (
-    <SectionContainer id="about" title={aboutContent.heading}>
-      <div className="grid gap-8 rounded-[2rem] border border-white/10 bg-slate-950/20 p-8 backdrop-blur-xl lg:grid-cols-[0.7fr_1.3fr] lg:p-10">
-        <div>
-          <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Profile</p>
-        </div>
-        <div>
-          <p className="max-w-2xl text-lg leading-8 text-slate-300">
+    <section id="about" aria-labelledby="about-title" className="mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+      <div className="relative mx-auto w-full max-w-[780px]">
+        {/* Subtle, understated maroon ambient glow behind the card */}
+        <div
+          className="pointer-events-none absolute -inset-4 rounded-[28px] blur-2xl opacity-75"
+          style={{
+            background:
+              'radial-gradient(circle at center, rgba(142, 43, 58, 0.14) 0%, rgba(92, 31, 42, 0.04) 55%, transparent 75%)',
+          }}
+          aria-hidden="true"
+        />
+
+        {/* Single glassmorphism card centered on the page */}
+        <div className="relative rounded-[20px] border border-white/[0.08] bg-[#0B1528]/50 p-10 sm:p-12 backdrop-blur-xl shadow-2xl shadow-black/20">
+          <h2 id="about-title" className="mb-6 text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] text-slate-400">
+            {aboutContent.heading}
+          </h2>
+          <p className="max-w-[750px] text-[18px] font-normal leading-[1.8] text-slate-200/90 text-left">
             {aboutContent.description}
           </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            {aboutContent.highlights.map((item) => (
-              <Badge key={item}>{item}</Badge>
-            ))}
-          </div>
         </div>
       </div>
-    </SectionContainer>
+    </section>
   );
 }
+

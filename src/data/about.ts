@@ -1,6 +1,6 @@
 export const aboutContent = {
-  heading: 'About Me',
+  heading: 'ABOUT ME',
   description:
-    'I help teams turn raw data into reliable analytics products and executive-ready insights. My work spans warehouse modeling, dashboard development, KPI design, and thoughtful reporting that connects technical execution with business outcomes.',
-  highlights: ['SQL', 'Analytics Engineering', 'Business Intelligence', 'Customer Analytics', 'Dashboard Development'],
+    "I hold a Master's in Computer Applications from PES University and a Bachelor's in Computer Applications. Ranked among the Top 5% globally in the GCI World 2026 Machine Learning Competition (Matsuo-Iwasawa Lab, The University of Tokyo). I build end-to-end analytics projects focused on SQL, data modeling, ETL pipelines, and business intelligence.",
 };
+
